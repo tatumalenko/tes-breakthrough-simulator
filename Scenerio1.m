@@ -1,5 +1,5 @@
 %% *1. Scenerio1 function definition*
-function Scenerio1_ver3(varargin)
+function Scenerio1(varargin)
 % Scenerio1(tM,xN,Name,Value)
 % 
 % where Name= 'xlsname' and/or 'sheet'
