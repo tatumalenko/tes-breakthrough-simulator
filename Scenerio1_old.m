@@ -1,5 +1,5 @@
 %% *1. Scenerio1 function definition*
-function ysol = Scenerio1(varargin)
+function ysol = Scenerio1_old(varargin)
     
     global T0 cginlet tao derr PI vi Dz % declare global variables
     PI = pi();
@@ -106,10 +106,10 @@ function ysol = Scenerio1(varargin)
         end
     end
     
-    %createGUI;
-    figure; 
-    subplot(1,2,1); plot(c_gExp24.Var1,c_gExp24.Var2,'o',t,c_g(:,end)./cginlet); ylim([0 1]);
-    subplot(1,2,2); plot(T_gExp24.Var1,T_gExp24.Var2-273.15,'o',t,T_g(:,end)); ylim([20 80]);
+    createGUI;
+%     figure; 
+%     subplot(1,2,1); plot(c_gExp24.Var1,c_gExp24.Var2,'o',t,c_g(:,end)); 
+%     subplot(1,2,2); plot(T_gExp24.Var1,T_gExp24.Var2-273.15,'o',t,T_g(:,end));
     %% *1A. pdefun function definition*
     function [c,f,s] = pdefun(x,t,u,DuDx)
         % Note to myself: Try fix, if numel(u)==2, call Scenerio1 again.

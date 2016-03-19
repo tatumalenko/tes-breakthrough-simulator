@@ -1,0 +1,27 @@
+function LI = LI_isotherm(c,T)
+%     if c < 0
+%         c = 0;
+%     end
+    %P  = c.*Rg.*T;
+    R = R_GAS('atm','m3');    % atm.m3/molG.K
+    Mv = 18.01528e-3;         % kg/mol
+    P  = P.*u2u('kPa','atm'); % atm
+    
+    
+    k1 = 174.2;             % molA/kgS
+    k2 = 0.510;             % molA/kgS.K
+    k3 = 1.375;             % 1/atm
+    k4 = 408.2;             % K 
+    
+    qm = (k1 - k2*T);       % molA/kgS
+    b  = k3.*exp(k4./T);    % 1/atm
+    
+    q        = (qm.*b.*P)./(1 + b.*P); % molA/kgS
+    dqdp     = (qm.*b)./(1 + b.*P).^2; % molA/kgS.atm
+    dqdc     = dqdp.*R.*T;             % (molA/molG)*m3G/kgS = molA/kgS*m3G/molG
+    
+    LI.qmol  = q; 
+    LI.qkg   = q.*Mv;
+    LI.dqdP  = dqdp;
+    LI.dqdc  = dqdc;
+end

@@ -1,0 +1,19 @@
+function dwdt = LDF(type)
+Ru = RGAS('J');
+w_eq = Isotherm(type);
+
+if strcmp(type,'ZEO13X')
+    w_
+    k1 = 4.004e-2; % 1/s
+    k2 = 905.8; % K
+    Ea = 7530; % J/mol
+
+    dwdt = k1.*exp(-k2./T).*(w_eq - w);
+
+elseif strcmp(type,'SILGEL')
+    Dso  = 2.54e-4; % m2/s
+    Rp   = 1.74e-4; % m
+    Ea   = 42000; % J/mol
+
+    dwdt = 15.*Dso./Rp^2.*exp(-Ea./(Ru.*T)).*(w_eq - w);
+end

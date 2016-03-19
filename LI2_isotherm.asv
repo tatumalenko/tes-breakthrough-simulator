@@ -1,0 +1,19 @@
+function y = LI2_isotherm(T)
+    T  = T + 273.15;
+    R  = 8.314;
+    c  = 1.07;
+    P  = c.*R.*T;
+    n1 = 1;
+    n2 = 0; % K
+    qmax = 18; % mol/kg
+    b0   = 0.0002; % 1/Pa^n
+    dE   = 10000; % J/mol
+    
+    n = n1 + n2./T;
+    b = b0.*exp(dE./(R.*T));
+    q = qmax.*b.*P.^n./(1 + b.*P.^n);
+    dqdP = qmax.*b.*n.*P.^(n-1)./(1 + b.*P.^n).^2;
+    
+    y.q = q;
+    y.dqdP = dqdP;
+end
