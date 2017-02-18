@@ -1,4 +1,4 @@
-function ysol = Scenario1_MOL
+function ysol = scenario1_mol
 % ---------------------------------------------------------------------
 % DECLARE TEMPERATURE INDEPENDENT PARAMETERS
 % ---------------------------------------------------------------------
@@ -134,8 +134,8 @@ ysol.cgendnorm   = ysol.cg(:,end)./cginlet;
 % ---------------------------------------------------------------------
 % READ AND STORE EXPERIMENTAL DATA
 % ---------------------------------------------------------------------
-Conc24LPM= xlsread('Dansdata.xlsx','24 LPM Conc');
-Temp24LPM= xlsread('Dansdata.xlsx','24 LPM Temp');
+Conc24LPM= xlsread('../test/dansdata.xlsx','24 LPM Conc');
+Temp24LPM= xlsread('../test/dansdata.xlsx','24 LPM Temp');
 e.Conc.t    = Conc24LPM(:,1); 
 e.Conc.cgend= Conc24LPM(:,2);
 e.Conc.cgendnorm = e.Conc.cgend./cginlet;

@@ -1,5 +1,5 @@
 %% *1. Scenerio1 function definition*
-function ysol = Scenerio1(varargin)
+function ysol = scenario1(varargin)
     
     global T0 cginlet tao derr PI vi Dz % declare global variables
     PI = pi();
@@ -34,9 +34,9 @@ function ysol = Scenerio1(varargin)
         end
     end
 
-    c_gExp24 = readtable('Dansdata.xlsx','Sheet','24 LPM Conc',...
+    c_gExp24 = readtable('../test/dansdata.xlsx','Sheet','24 LPM Conc',...
                         'ReadVariableName',false);
-    T_gExp24 = readtable('Dansdata.xlsx','Sheet','24 LPM Temp',...
+    T_gExp24 = readtable('../test/dansdata.xlsx','Sheet','24 LPM Temp',...
                         'ReadVariableName',false);
     
     derr = 1e-15;   
