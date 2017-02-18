@@ -106,7 +106,7 @@ function ysol = Scenerio1(varargin)
         end
     end
     
-    %createGUI;
+    createGUI;
     figure; 
     subplot(1,2,1); plot(c_gExp24.Var1,c_gExp24.Var2,'o',t,c_g(:,end)./cginlet); ylim([0 1]);
     subplot(1,2,2); plot(T_gExp24.Var1,T_gExp24.Var2-273.15,'o',t,T_g(:,end)); ylim([20 80]);
@@ -275,8 +275,8 @@ function ysol = Scenerio1(varargin)
                         %       (5, 6)
                         %       (7, 8)
         hold on
-        ploth1 = plot(tMinutes,c_gRatio_xSlide(sVal));
-        plothExp1 = plot(c_gExp24time,c_gExp24conc,'.r');
+        ploth1 = plot(tMinutes,c_gRatio_xSlide(sVal),'LineWidth',2);
+        plothExp1 = plot(c_gExp24time,c_gExp24conc,'or','MarkerSize',4);
         hold off
         xlabel('Time t (min)');
         ylabel('c/c_0');
@@ -313,7 +313,7 @@ function ysol = Scenerio1(varargin)
         
         %% _1D.ii) createGUI section for the c/co vs x plot with t slider_
         subplot(4,2,2);
-        ploth2 = plot(x_mm,c_gRatio_tSlide(sVal));
+        ploth2 = plot(x_mm,c_gRatio_tSlide(sVal),'LineWidth',2);
         xlabel('Position x (mm)');
         ylabel('c/c_0');
         ylim([0,1]);
@@ -348,8 +348,8 @@ function ysol = Scenerio1(varargin)
         %% _1D.iii) createGUI section for Tg vs t plot with x slider_
         subplot(4,2,5);
         hold on
-        ploth3 = plot(tMinutes,T_g_xSlide(sVal));
-        plothExp3 = plot(T_gExp24time,T_gExp24temp,'.r');
+        ploth3 = plot(tMinutes,T_g_xSlide(sVal),'LineWidth',2);
+        plothExp3 = plot(T_gExp24time,T_gExp24temp,'or','MarkerSize',4);
         hold off
         xlabel('Time t (min)');
         ylabel('T_g');
@@ -387,7 +387,7 @@ function ysol = Scenerio1(varargin)
         %% _1D.iv) createGUI section for Tg vs x plot with t slider_
         subplot(4,2,6);
 
-        ploth4 = plot(x_mm,T_g_tSlide(sVal));
+        ploth4 = plot(x_mm,T_g_tSlide(sVal),'LineWidth',2);
         xlabel('Position x (mm)');
         ylabel('T_g');
         yupper = round(max(max(T_g)*1.10),-1); %round mult of 10
